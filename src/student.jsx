@@ -1,5 +1,7 @@
 // import Subject from "./subject";
 
+import { useEffect } from "react";
+
 // export default function Student() {
 //   return (
 //     <div style={{backgroundColor:"blue",padding:"20px"}}>
@@ -26,4 +28,6 @@
 //             <h1>Student in :  {subject}</h1>
 //         </div>
 //     )
-// } 
+// }
+
+

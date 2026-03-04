@@ -12,9 +12,11 @@
 // // import Books from "./Todo";
 // // import Counter,{MulCondition} from "./UserComponent";
 
+import { Input } from "postcss";
+
 // import { useState } from "react";
 // import College from "./User";
-// import Subject from "./subject";
+// import Subject from "./subject"; `
 // import { SubjectContext } from "./data";
 
 // import { useRef } from "react";
@@ -3162,7 +3164,7 @@
 //   const [passErr, setpassErr] = useState();
 
 //   const handleErr = (e) => {
-//     console.log(e.target.value);
+//     // console.log(e.target.value);
 //     if (e.target.value.length > 5) {
 //       setnameErr("please enter valid  username,only allows 5 character!");
 //     } else {
@@ -3187,7 +3189,7 @@
 //       <input
 //         style={{ borderRadius: "10px", marginTop: "80px" }}
 //         type="text"
-//         className={nameErr ? "error" : ""}
+//         // className={nameErr ? "error" : ""}
 //         onChange={handleErr}
 //         placeholder="Enter your name?"
 //       />
@@ -3200,7 +3202,7 @@
 //         style={{ borderRadius: "10px", marginTop: "20px" }}
 //         type="text"
 //         placeholder="Enter your password?"
-//         className={passErr ? "error" : ""}
+//         // className={passErr ? "error" : ""}
 //         onChange={handleword}
 //       />
 //       <br></br>
@@ -3214,6 +3216,7 @@
 // }
 
 // export default App;
+
 // import { useState } from "react";
 // import "../src/css/style.css";
 // function App() {
@@ -3294,7 +3297,7 @@
 //         <input type="text" name="name" placeholder="Enter your name?" />
 //         <br></br>
 //         <br></br>
-//         <input type="text" name="password" placeholder="Enter your password?" />
+//         <input type="password" name="password" placeholder="Enter your password?" />
 //         <br></br>
 //         <br></br>
 //         <button disabled={pending || data?.error}>
@@ -3321,6 +3324,7 @@
 
 //   //
 // };
+// import { useReducer } from "react";
 // function App() {
 //   const [state, dispatch] = useReducer(Reducer, emptydata);
 //   console.log(state)
@@ -3378,6 +3382,35 @@
 // }
 
 // export default App;
+// import { useReducer } from "react";
+// const start = {
+//   count: 0,
+// };
+// const Reducer = (state, action) => {
+//   switch (action.type) {
+//     case "increment":
+//       return { count: state.count + 1 };
+//     case "decrement":
+//       return { count: state.count - 1 };
+//     case "reset":
+//       return { count: 0 };
+//   }
+// };
+// function App() {
+//   const [data, dispatch] = useReducer(Reducer, start);
+//   return (
+//     <>
+//       <h1>UseReducer in react!</h1>
+//       <button onClick={() => dispatch({ type: "increment" })}>Increment</button>
+//       <button onClick={() => dispatch({ type: "decrement" })}>Decrement</button>
+//       <button onClick={() => dispatch({ type: "reset" })}>Reset</button>
+//       <h1>Count : {data.count} </h1>
+//     </>
+//   );
+// }
+
+// export default App;
+
 // import User from "./About";
 // import { useState, lazy, Suspense } from "react";
 // const User = lazy(() => import("./About"));
@@ -3395,7 +3428,7 @@
 //     </>
 //   );
 // }
-
+// import Title from "./Navbar";
 // export default App;
 // import { useState } from "react";
 // import College from "./College";
@@ -3582,12 +3615,898 @@
 //   );
 // }
 // export default App;
+// import {
+//   Navbar,
+//   About,
+//   Contact,
+//   Page,
+//   College,
+//   Student,
+//   Faculty,
+//   Details,
+// } from "./Checkboxes";
+// import { BrowserRouter, Routes, Route } from "react-router-dom";
+// function App() {
+//   return (
+//     <>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route element={<Navbar />}>
+//             <Route path="/" element={<h1>Home page!</h1>} />
+//             <Route path="/About" element={<About />} />
+//             <Route path="/Contact" element={<Contact />} />
+//           </Route>
+//           <Route path="/College" element={<College />}>
+//             <Route index element={<Student />} />
+//             <Route path="faculty" element={<Faculty />} />
+//             <Route path="details" element={<Details />} />
+//           </Route>
+//           <Route path="/*" element={<Page />}></Route>
+//         </Routes>
+//       </BrowserRouter>
+//     </>
+//   );
+// }
 
+// export default App;
+// import { Route, Routes, BrowserRouter } from "react-router-dom";
+// import {
+//   About,
+//   Contact,
+//   Home,
+//   Page,
+//   Navbar,
+//   College,
+//   Student,
+//   Faculty,
+//   Subject,
+//   Userlist,
+//   Userdata,
+// } from "./Checkboxes";
+// function App() {
+//   return (
+//     <div>
+//       <BrowserRouter>
+//         <Routes>
+//           <Route element={<Navbar />}>
+//             <Route path="/" element={<Home />} />
+//             <Route path="/contact" element={<Contact />} />
+//             <Route path="/user" element={<Userlist />} />
+//             <Route path="/user/page?/:id" element={<Userdata/>}/>
+//             <Route path="in">
+//               <Route path="/in/User">
+//                 <Route path="/in/User/about" element={<About />} />
+//               </Route>
+//             </Route>
+//           </Route>
+//           <Route path="/college" element={<College />}>
+//             <Route path="student" element={<Student />} />
+//             <Route index element={<Faculty />} />
+//             <Route path="subject" element={<Subject />} />
+//           </Route>
+//           <Route path="/*" element={<Page />} />
+//         </Routes>
+//       </BrowserRouter>
+//     </div>
+//   );
+// }
+
+// export default App;
+// import { useState } from "react";
+// import "../src/css/style.css";
+// function App() {
+//   const [userdata, setuserdata] = useState([]);
+//   const [loading,setloading] = useState(true);
+
+//   useEffect(() => {
+//     getuserdata();
+//   }, []);
+//   const getuserdata = async () => {
+//     const url = "http://localhost:3000/p";
+//     let response = await fetch(url);
+//     response = await response.json();
+//     await new Promise((res) => setTimeout(res,2000))
+//     console.log(response)
+//     setuserdata(response)
+//     setloading(false)
+//   };
+//   return (
+//     <>
+//       <h1>hello world!</h1>
+//       <ul className="user-list" style={{ fontSize: "35px" }}>
+//         <li>First name</li>
+//         <li>Last name</li>
+//       </ul>
+//       { !loading?(
+//       userdata.map((item, index) => {
+//         return (
+//           <ul key={index} className="user-list">
+//             <li>{item.author}</li>
+//             <li>{item.title}</li>
+//           </ul>
+//         );
+//       })):<h1>Data loading...</h1>}
+//     </>
+//   );
+// }
+
+// export default App;
+// import { useEffect } from "react";
+// import { Link, Routes, Route, BrowserRouter } from "react-router-dom";
+// import { Userlist,UserAdd,EditUser } from "./Checkboxes";
+// import "../src/css/style.css";
+// function App() {
+//   return (
+//     <>
+//       <BrowserRouter>
+//       <ul className="add">
+//         <li><Link to="/add">Add user</Link> </li>
+//         <li><Link to="/">List</Link> </li>
+//       </ul>
+//         <Routes>
+//           <Route path="/" element={<Userlist />} />
+//           <Route path="/add" element={<UserAdd />} />
+//           <Route path="/edit/:id" element={<EditUser/>}/>
+//         </Routes>
+//       </BrowserRouter>
+//     </>
+//   );
+// }
+// export default App;
+// import "../src/css/style.css";
+// import { Routes, Route, Link, BrowserRouter } from "react-router-dom";
+// import { Userlist, UserAdd, Edituser, Page } from "./Checkboxes";
+// function App() {
+//   return (
+//     <>
+//       <BrowserRouter>
+//         <ul className="user">
+//           <li>
+//             <Link to="/">List</Link>
+//           </li>
+//           <li>
+//             <Link to="/add">Add</Link>
+//           </li>
+//         </ul>
+//         <Routes>
+//           <Route path="/" element={<Userlist />} />
+//           <Route path="/add" element={<UserAdd />} />
+//           <Route path="/edit/:id" element={<Edituser />} />
+//           <Route path="/*" element={<Page/>}></Route>
+//         </Routes>
+//       </BrowserRouter>
+//     </>
+//   );
+// }
+
+// export default App;
+// import Title, { Colors, UserName,mouse } from "./Navbar";
+// function App() {
+//   let name = undefined;
+//   let a = 20;
+//   let b = 30;
+//   function sum(a, b) {
+//     return a + b;
+//   }
+//   function operation(x, y, op) {
+//     if (op == "+") {
+//       return x + y;
+//     } else if (op == "-") {
+//       return x - y;
+//     } else if (op == "*") {
+//       return x * y;
+//     } else {
+//       return "value is not found!";
+//     }
+//   }
+
+//   let userobj = {
+//     name: "yasin",
+//     age: 20,
+//     school: "the age new high school!",
+//   };
+//   let path =
+//     "https://www.bing.com/images/search?view=detailV2&ccid=f179G4Ex&id=516196D3B2C74DE80401D81373DA2A6CC8549645&thid=OIP.f179G4ExW3UJgFZTGhhRFgHaFj&mediaurl=https%3a%2f%2fi.pinimg.com%2foriginals%2f49%2f73%2f5b%2f49735b38c27ca67787e201a8f4b0fd6d.jpg&exph=1200&expw=1600&q=images&FORM=IRPRST&ck=259BECE66910061319ACE11CECF0DE6A&selectedIndex=0&itb=0&idpp=overlayview&ajaxhist=0&ajaxserp=0";
+//   return (
+//     <div>
+//       <h1>yasin shaikh!</h1>
+//       <h2>{name}</h2>
+//       <h1>{a + b}</h1>
+//       <h1>{sum(101, 201)}</h1>
+//       <h1>{name ? "user is found!" : "user is not found!"}</h1>
+//       <Title />
+//       <Colors />
+//       <h1>{UserName}</h1>
+//       <button onClick={mouse}>click me!</button>
+//       <h1>{operation(10, 20, "*")}</h1>
+//       <h2>{userobj.name}</h2>
+//       <img src={path} alt="imgaes"/>
+//       <input type="text" placeholder="Enter your name ?" value="yasin"></input>
+//     </div>
+//   );
+// }
+
+// import  Mouse  from "./Navbar";
+// const Colors = (name) => {
+//   return alert(name);
+// };
+// function App() {
+//   const fruits = (name) => {
+//     return alert(name);
+//   };
+//   return (
+//     <>
+//       <button onClick={() => Colors("apple")}>Apple</button>
+//       <button onClick={() => fruits("mango")}>mango</button>
+//       <button onClick={Mouse}>Click me! on here!</button>
+//     </>
+//   );
+// }
+
+// import UserCard from './Navbar';
+// import { useState } from 'react';
+// function App() {
+//   // State variables define karna
+//   const [name, setName] = useState("Guest");
+//   const [color, setColor] = useState("#333");
+
+//   return (
+//     <div style={{ padding: '30px', fontFamily: 'Arial' }}>
+//       <h1>Beginner State & Props Project</h1>
+
+//       {/* Input handling (State Update) */}
+//       <div>
+//         <label>Naam Likhiye: </label>
+//         <input
+//           type="text"
+//           onChange={(e) => setName(e.target.value)}
+//           placeholder="Enter name"
+//         />
+//       </div>
+
+//       <div style={{ marginTop: '10px' }}>
+//         <label>Rang Chuniye: </label>
+//         <input
+//           type="color"
+//           onChange={(e) => setColor(e.target.value)}
+//         />
+//       </div>
+
+//       {/* Passing State as Props to Child */}
+//       <UserCard userName={name} bgColor={color} />
+//     </div>
+//   );
+// }
+
+// export default App
+// import ColorUser from "./Navbar";
+// import { useState } from "react";
+// import style from "../src/css/user.module.css";
+// function App() {
+//   const [color, setcolor] = useState("#ccc");
+//   const [name, setname] = useState("yasin");
+//   return (
+//     <div>
+//       <h2 className={style.heading}>begginers for state and props project onhere!</h2>
+//       <div>
+//         <label className={style.}>Enter your name : </label>
+//         <input
+//           type="text"
+//           placeholder="Enter your name?"
+//           onChange={(e) => setname(e.target.value)}
+//         />
+//       </div>
+//       <div className={style.color}>
+//         <label style={{paddingRight: "10px"}}>Select your Color : </label>
+//         <input type="color" onChange={(e) => setcolor(e.target.value)} />
+//       </div>
+//       <ColorUser color={color} name={name}/>
+//     </div>
+//   );
+// }
+
+// export default App;
+// import { useState } from "react";
+// function App() {
+//   const [data, setdata] = useState({
+//     names: "",
+//     password: "",
+//   });
+//   const handlesubmit = (e) => {
+//     e.preventDefault();
+//     console.log(` name : ${data.names} and password : ${data.password}`);
+//     alert("your data is : " + [data.names, data.password]);
+//   };
+
+//   const handleChange = (e) => {
+//     const { name, value } = e.target;
+//     setdata({
+//       ...data,
+//       [name]: value,
+//     });
+//   };
+//   return (
+//     <form onSubmit={handlesubmit}>
+//       <h1>multiple input data field on here!</h1>
+//       <input
+//         type="text"
+//         name="name"
+//         value={data.names}
+//         onChange={handleChange}
+//         placeholder="Enter your name?"
+//       />
+//       <br></br>
+//       <br></br>
+//       <input
+//         type="password"
+//         name="password"
+//         value={data.password}
+//         onChange={handleChange}
+//         placeholder="Enter your name?"
+//       />
+//       <br></br>
+//       <br></br>
+//       <button type="submit">Submit!</button>
+//     </form>
+//   );
+// }
+
+// export default App;
+// import Radiobtn from "./Navbar";
+// function App() {
+//   return <Radiobtn />;
+// }
+// export default App;
+// import Skills from "./Navbar";
+// function App() {
+//   const userData = [
+//     {
+//       name: "yasin",
+//       age: 20,
+//       School: "the new age",
+//       ID: 1,
+//     },
+//     {
+//       name: "Farhan",
+//       age: 20,
+//       School: "the new age",
+//       ID: 2,
+//     },
+//     {
+//       name: "nasrin",
+//       age: 30,
+//       School: "the new age",
+//       ID: 3,
+//     },
+//     {
+//       name: "shabbir",
+//       age: 45,
+//       School: "the new age",
+//       ID: 4,
+//     },
+//   ];
+//   return (
+//     <div>
+//       <table border="1" cellPadding="10px">
+//         <thead>
+//           <tr>
+//             <td>Name</td>
+//             <td>Age</td>
+//             <td>School</td>
+//             <td>ID</td>
+//           </tr>
+//         </thead>
+//         <tbody>
+//           {userData.map((item,index) => {
+//             return <Skills data={item}/>
+//           })}
+//         </tbody>
+//       </table>
+//     </div>
+//   );
+// }
+
+// export default App;
+// import { useState } from "react"
+// import style from '../src/css/user.module.css'
+// import UserProfile from './Checkboxes'
+// function App(){
+//   const cardStyle = {
+//     width : "200px",
+//     border  : "2px solid black",
+//     borderRadius : "10px"
+//   }
+//   return(
+//     <div style={cardStyle}>
+//       <h2 className={style.heading} style={{color : "green"}}>Hello world on here!</h2>
+//       <UserProfile/>
+//     </div>
+//   )
+// }
+
+// export default App
+
+// import { useState } from 'react';
+// import Button from 'react-bootstrap/Button';
+// import Col from 'react-bootstrap/Col';
+// import Form from 'react-bootstrap/Form';
+// import InputGroup from 'react-bootstrap/InputGroup';
+// import Row from 'react-bootstrap/Row';
+
+// function App() {
+//   const [validated, setValidated] = useState(false);
+
+//   const handleSubmit = (event) => {
+//     const form = event.currentTarget;
+//     if (form.checkValidity() === false) {
+//       event.preventDefault();
+//       event.stopPropagation();
+//     }
+
+//     setValidated(true);
+//   };
+
+//   return (
+//     <Form noValidate validated={validated} onSubmit={handleSubmit}>
+//       <Row className="mb-3">
+//         <Form.Group as={Col} md="4" controlId="validationCustom01">
+//           <Form.Label>First name</Form.Label>
+//           <Form.Control
+//             required
+//             type="text"
+//             placeholder="First name"
+//             defaultValue="Mark"
+//           />
+//           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+//         </Form.Group>
+//         <Form.Group as={Col} md="4" controlId="validationCustom02">
+//           <Form.Label>Last name</Form.Label>
+//           <Form.Control
+//             required
+//             type="text"
+//             placeholder="Last name"
+//             defaultValue="Otto"
+//           />
+//           <Form.Control.Feedback>Looks good!</Form.Control.Feedback>
+//         </Form.Group>
+//         <Form.Group as={Col} md="4" controlId="validationCustomUsername">
+//           <Form.Label>Username</Form.Label>
+//           <InputGroup hasValidation>
+//             <InputGroup.Text id="inputGroupPrepend">@</InputGroup.Text>
+//             <Form.Control
+//               type="text"
+//               placeholder="Username"
+//               aria-describedby="inputGroupPrepend"
+//               required
+//             />
+//             <Form.Control.Feedback type="invalid">
+//               Please choose a username.
+//             </Form.Control.Feedback>
+//           </InputGroup>
+//         </Form.Group>
+//       </Row>
+//       <Row className="mb-3">
+//         <Form.Group as={Col} md="6" controlId="validationCustom03">
+//           <Form.Label>City</Form.Label>
+//           <Form.Control type="text" placeholder="City" required />
+//           <Form.Control.Feedback type="invalid">
+//             Please provide a valid city.
+//           </Form.Control.Feedback>
+//         </Form.Group>
+//         <Form.Group as={Col} md="3" controlId="validationCustom04">
+//           <Form.Label>State</Form.Label>
+//           <Form.Control type="text" placeholder="State" required />
+//           <Form.Control.Feedback type="invalid">
+//             Please provide a valid state.
+//           </Form.Control.Feedback>
+//         </Form.Group>
+//         <Form.Group as={Col} md="3" controlId="validationCustom05">
+//           <Form.Label>Zip</Form.Label>
+//           <Form.Control type="text" placeholder="Zip" required />
+//           <Form.Control.Feedback type="invalid">
+//             Please provide a valid zip.
+//           </Form.Control.Feedback>
+//         </Form.Group>
+//       </Row>
+//       <Form.Group className="mb-3">
+//         <Form.Check
+//           required
+//           label="Agree to terms and conditions"
+//           feedback="You must agree before submitting."
+//           feedbackType="invalid"
+//         />
+//       </Form.Group>
+//       <Button type="submit">Submit form</Button>
+//     </Form>
+//   );
+// }
+// export default App;
+// import Books from "./Checkboxes";
+// import { useRef } from "react";
+// function App() {
+//   const inputRef = useRef(null);
+//   const handleinput = () => {
+//     inputRef.current.style.color = "blue"
+//     inputRef.current.focus()
+//   };
+//   return (
+//     <div>
+//       <h1>Hello world onhere!</h1>
+//       <Books ref={inputRef}/>
+//       <button onClick={handleinput}>Updata values</button>
+//     </div>
+//   );
+// }
+// import { useFormStatus } from "react-dom";
+// function App() {
+//   const handlesubmit = async () => {
+//     await new Promise((res) => {
+//       setTimeout(res, 2000);
+//     });
+//     console.log("yasin shaikh");
+//   };
+
+//   function CustomerForm() {
+//     const { pending } = useFormStatus();
+//     console.log(pending);
+
+//     return (
+//       <div>
+//         <h2>Hello wrodl on here!</h2>
+//         <h2>This is formstatus hook in react!</h2>
+//         <input type="text" placeholder="Enter your name?" />
+//         <br></br>
+//         <br></br>
+//         <input type="password" placeholder="Enter your password?" />
+//         <br></br>
+//         <br></br>
+//         <button type="submit" disabled={pending}>
+//           {pending ? "submitting..." : "submit"}
+//         </button>
+//       </div>
+//     );
+//   }
+
+//   return (
+//     <form action={handlesubmit}>
+//       <CustomerForm />
+//     </form>
+//   );
+// }
+
+// export default App;
+// import { useTransition } from "react";
+// function App() {
+//   const [setpending, startTranstion] = useTransition();
+//   const handlebtn = () => {
+//     startTranstion(async () => {
+//       await new Promise((res) => setTimeout(res, 2000));
+//       console.log("your data is printed!");
+//     });
+//   };
+//   return (
+//     <>
+//       <h2>Hello world on here!</h2>
+//       {setpending ? (
+//         <img style={{width : "100px"}} src="https://upload.wikimedia.org/wikipedia/commons/b/b1/Loading_icon.gif" />
+//       ) : null}
+//       <button disabled={setpending} onClick={handlebtn}>
+//         click me!
+//       </button>
+//     </>
+//   );
+// }
+
+// export default App;
+
+// import { useState, useTransition } from "react";
+
+// function App() {
+//   const [query, setQuery] = useState("yasin");
+//   const [list, setList] = useState([]);
+//   const [isPending, startTransition] = useTransition();
+
+//   const bigList = Array.from({ length: 100 }, (_, i) => "Item " + i);
+
+//   function handleChange(e) {
+//     const value = e.target.value;
+//     setQuery(value);
+
+//     // Slow update ko background me run karna
+//     startTransition(() => {
+//       const filtered = bigList.filter((item) => item.includes(value));
+//       setList(filtered);
+//     });
+//   }
+
+//   return (
+//     <div>
+//       <input type="text" value={query} onChange={handleChange} />
+//       {isPending ? <p>loading...</p> : null}
+
+//       <ul>
+//         {list.map((item, i) => (
+//           <li key={i}>{item}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default App;
+
+// import { useState, useTransition } from "react";
+
+// function App() {
+//   const [search, setSearch] = useState("Myphone");
+//   const [filteredProducts, setFilteredProducts] = useState(["none"]);
+//   const [isPending, startTransition] = useTransition();
+
+//   // Real array
+//   const products = [
+//     "iPhone 14",
+//     "Samsung Galaxy S23",
+//     "OnePlus 11",
+//     "Realme Narzo",
+//     "Redmi Note 12",
+//     "Vivo V27",
+//     "Oppo Reno 8",
+//     "Nokia G21",
+//     "Motorola Edge",
+//     "Google Pixel 7",
+//   ];
+
+//   const handleSearch = (e) => {
+//     const value = e.target.value;
+//     setSearch(value); // Fast update
+
+//     // Slow update (background me chalega)
+//     startTransition(() => {
+//       const result = products.filter((p) =>
+//         p.toLowerCase().includes(value.toLowerCase()),
+//       );
+//       setFilteredProducts(result);
+//     });
+//   };
+
+//   return (
+//     <div>
+//       <h2>Product Search</h2>
+
+//       <input
+//         type="text"
+//         value={search}
+//         onChange={handleSearch}
+//         placeholder="Search product..."
+//       />
+
+//       {isPending && <p>Searching...</p>}
+
+//       <ul>
+//         {filteredProducts.map((p, index) => (
+//           <li key={index}>{p}</li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// }
+
+// export default App;
+// function App() {
+//   return (
+//     <div>
+//       <h2>Hello world on here!</h2>
+//       <Cup count ={2}/>
+//       <Cup count ={4}/>
+//       <Cup count ={8} />
+//     </div>
+//   );
+// }
+
+// const Cup = ({count}) => {
+//   return <h2>Cup of tea {count}</h2>;
+// };
+// export default App;
+
+// App.jsx
+// import React, { useState } from "react";
+// import UserCard from "./Checkboxes"; // Child component ko import kiya
+
+// function App() {
+//   const [count, setCount] = useState(0);
+//   const [otherState, setOtherState] = useState(false);
+
+//   return (
+//     <div style={{ padding: "20px", fontFamily: "Arial" }}>
+//       <h1>Parent Component</h1>
+//       <p>Counter: {count}</p>
+
+//       {/* Jab hum button dabayenge, sirf App.jsx re-render hoga */}
+//       <button onClick={() => setCount(count + 1)}>Increase Count</button>
+
+//       {/* UserCard ko 'name' prop bhej rahe hain jo "Rahul" hi rahega */}
+//       <UserCard name="Rahul" />
+
+//       <p style={{ marginTop: "20px" }}>
+//         Notice: Button dabane par 'UserCard' ka console message dobara nahi
+//         aayega!
+//       </p>
+//     </div>
+//   );
+// }
+
+// export default App;
+// import Mouse from "./Checkboxes"
+// import { useState } from "react"
+// function App(){
+//     const [data,setdata] = useState(0)
+//     return(
+//         <>
+//         <h2>Hello world on here App</h2>
+//         <button onClick={() =>setdata(data + 1)}>Increase count!</button>
+//         <h2>Count : {data}</h2>
+//         <Mouse name="yasin"/>
+//         </>
+//     )
+// }
+
+// export default App
+// import Cart from "./Checkboxes";
+// import { useState } from "react";
+// function App() {
+//     const [data,setdata] = useState([1,2,3,4])
+//     const count = data.length
+//     console.log(data)
+//   return (
+//     <>
+//       <h2>hello world on here!</h2>
+//       <h2>total : {count}</h2>
+//       <button onClick={() =>setdata([...data,10])}>Click me!</button>\
+//       <Cart/>
+//     </>
+//   );
+// }
+
+// export default App;
+// import Inputbox from "./Checkboxes"
+// function App(){
+//     return(
+//         <>
+//         <h2>Hello world on here!</h2>
+//         <Inputbox/>
+//         </>
+//     )
+// }
+
+// export default App
+
+// import { useState } from "react";
+
+// function App() {
+//   const [number, setNumber] = useState(0); // state parent me
+
+//   return (
+//     <div>
+//       <h2>Lifting State Up Example</h2>
+//       <InputBox number={number} setNumber={setNumber} />
+//       <DisplayDouble number={number} />
+//     </div>
+//   );
+// }
+
+// function InputBox({ number, setNumber }) {
+//   return (
+//     <input
+//       type="number"
+//       value={number}
+//       onChange={(e) => setNumber(Number(e.target.value))}
+//     />
+//   );
+// }
+
+// function DisplayDouble({ number }) {
+//   return <p>Double Value: {number * 2}</p>;
+// }
+
+// export default App;
+// import { useState } from "react";
+// function App() {
+//   const [data, setdata] = useState(["yasin", "farhan", "nasrin", "shabbir"]);
+//   const handlename = (val) => {
+//     let tempname = (data[data.length - 1] = val);
+//     console.log(tempname);
+//     setdata([...data]);
+//   };
+
+//   const [details, setdetails] = useState([
+//     { name: "yasin", age: 20 },
+//     { name: "farhan", age: 16 },
+//     { name: "shabbir", age: 40 },
+//   ]);
+
+//   const handleage = (val) =>{
+//     let newDetails =  details.map((items,index) =>{
+//       if(index === details.length - 1){
+//         return {...items,age:val}
+//       }
+//       else{
+//         return items;
+//       }
+//     })
+
+//     setdetails(newDetails)
+
+//   }
+//   return (
+//     <>
+//       <h2>hello world on here!</h2>
+//       <input
+//         type="text"
+//         placeholder="Enter your name?"
+//         onChange={(e) => handlename(e.target.value)}
+//       />
+
+//       <br></br>
+//       <br></br>
+//       {data.map((item, index) => {
+//         return <h2 key={index}>{item}</h2>;
+//       })}
+//       <hr></hr>
+//       <input
+//         type="text"
+//         placeholder="Enter your age?"
+//         onChange={(e) => handleage(e.target.value)}
+//       />
+//       <br></br>
+//       <br></br>
+//       {details.map((item, index) => {
+//         return (
+//           <h2 key={index}>
+//             {item.name},{item.age}
+//           </h2>
+//         );
+//       })}
+//     </>
+//   );
+// }
+// export default App;
+import { useActionState } from "react";
 function App() {
+  async function logingform(predata, formdata) {
+    const name = formdata.get("name");
+    const password = formdata.get("password");
+    console.log(name, password);
+    await new Promise((res) => setTimeout(res, 1000));
+    if (!name && !password) {
+      return { error: "name & password is required!" };
+    } else if (name !== "yasin" || password !== "1234") {
+      return { error: "Invalid credetials,try again!" };
+    } else {
+      return { success: `Done ${[name, password]}` };
+    }
+  }
+  const [data, action, pending] = useActionState(logingform, {});
   return (
-    <>
-      <h1>hello world!</h1>
-    </>
+    <form action={action}>
+      <h2>hello action hook on here!</h2>
+      <br></br>
+      <br></br>
+      <input type="text" placeholder="Enter your name?" name="name" />
+      <br></br>
+      <br></br>
+      <input
+        type="password"
+        placeholder="Enter your password?"
+        name="password"
+      />
+      <br></br>
+      <br></br>
+      <button type="submit" disabled={pending}>
+        {pending ? "Submitting..." : "Submit!"}
+      </button>
+      {data?.error && <p style={{ color: "red" }}>{data.error}</p>}
+      {data?.success && <p style={{ color: "green" }}>{data.success}</p>}
+    </form>
   );
 }
 
